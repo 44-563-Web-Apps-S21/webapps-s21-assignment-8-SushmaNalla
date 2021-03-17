@@ -18,20 +18,14 @@ const server =
       console.log("Queries: " + search_params)
 
       if (req.method === 'GET' ) {
-        var x = Number(search_params.get("x"));
-       
-          console.log("Look for query parameter data: " + search_params.get("data"))
-
-
+          
+        console.log("Look for query parameter data: " + search_params.get("data"))
+          var x=Number(search_params.get("x"));
           // Process the queries here
           res.statusCode = 200      //code for OK
-          res.setHeader('Content-Type', 'text/plain'); 
-          res.write(`cbrt(${x},${Number}) is ${Math.cbrt(x ,Number)}\n`)
-          res.write(`atanh(${x},${Number}) is ${Math.atanh(x,Number)}\n`)
-          res.write(`atan2(${x},${Number}) is ${Math.atan2(x,Number)}\n`)
-
+          res.setHeader('Content-Type', 'text/plain')
+          res.write(`Cube root of ${x} is ${Math.cbrt(x)}`)
           res.end();
-        
       } else {
         console.log("Status 404");
         res.statusCode = 404;
